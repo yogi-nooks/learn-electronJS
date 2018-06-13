@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/yogi-nooks/learn-electronjs/issues"
   },
-  "homepage": "https://github.com/yogi-nooks/learn-electronjs#readme"
+  "homepage": "https://github.com/yogi-nooks/learn-electronjs#readme",
+  "dependencies": {
+    "electron-reload": "^1.2.2"
+  }
 }
