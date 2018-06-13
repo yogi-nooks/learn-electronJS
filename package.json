@@ -1,12 +1,15 @@
 {
-  "name": "electron-quick-start",
+  "name": "electronjs",
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yogi-nooks/learn-electronjs.git"
+  },
   "keywords": [
     "Electron",
     "quick",
@@ -18,5 +21,9 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^2.0.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/yogi-nooks/learn-electronjs/issues"
+  },
+  "homepage": "https://github.com/yogi-nooks/learn-electronjs#readme"
 }
