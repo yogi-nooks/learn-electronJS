@@ -29,11 +29,11 @@ app.on('ready', function(e) {
   // Create the browser window.
   
   mainWindow = new BrowserWindow({width: 1400, height: 600, backgroundColor : '#ffff00'});
-  childWindow = new BrowserWindow({width: 400, height: 400, backgroundColor : '#ffffff'});
+  childWindow = new BrowserWindow({width: 400, height: 400, backgroundColor : '#ffffff', parent: mainWindow});
   
   // and load the index.html of the app.
   mainWindow.loadFile('index.html');
-  mainWindow.loadURL('https://electronjs.org/docs/all');
+  childWindow.loadURL('https://electronjs.org/docs/all');
   
   // mainWindow.once('ready-to-show', function(){
   //   mainWindow.show();
