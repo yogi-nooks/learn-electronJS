@@ -21,12 +21,13 @@ let mainWindow
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 
+console.log(app.getPath('desktop'));
+
 app.on('ready', function(e) {
   // Create the browser window.
-  console.log(e);
+  
   mainWindow = new BrowserWindow({width: 1400, height: 600})
   
-  console.log('app is ready');
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
   
