@@ -9,6 +9,7 @@ var bcrypt = require('bcrypt');
 const saltRounds = 10;
 const myPlaintextPassword = 's0/\/\P4$$w0rD';
 const someOtherPlaintextPassword = 'not_bacon';
+app.setBadgeCount(98);
 
 bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
   console.log("hashed password "+ hash);
@@ -22,6 +23,7 @@ let mainWindow
 // Some APIs can only be used after this event occurs.
 
 console.log(app.getPath('desktop'));
+console.log(app.getName());
 
 app.on('ready', function(e) {
   // Create the browser window.
