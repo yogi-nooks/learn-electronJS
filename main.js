@@ -28,11 +28,14 @@ console.log(app.getName());
 app.on('ready', function(e) {
   // Create the browser window.
   
-  mainWindow = new BrowserWindow({width: 1400, height: 600})
+  mainWindow = new BrowserWindow({width: 1400, height: 600, backgroundColor : '#ffff00'});
   
   // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  mainWindow.loadFile('index.html');
   
+  // mainWindow.once('ready-to-show', function(){
+  //   mainWindow.show();
+  // })
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
