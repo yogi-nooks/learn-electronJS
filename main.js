@@ -29,9 +29,11 @@ app.on('ready', function(e) {
   // Create the browser window.
   
   mainWindow = new BrowserWindow({width: 1400, height: 600, backgroundColor : '#ffff00'});
+  childWindow = new BrowserWindow({width: 400, height: 400, backgroundColor : '#ffffff'});
   
   // and load the index.html of the app.
   mainWindow.loadFile('index.html');
+  mainWindow.loadURL('https://electronjs.org/docs/all');
   
   // mainWindow.once('ready-to-show', function(){
   //   mainWindow.show();
@@ -42,6 +44,12 @@ app.on('ready', function(e) {
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
+    // Dereference the window object, usually you would store windows
+    // in an array if your app supports multi windows, this is the time
+    // when you should delete the corresponding element.
+    mainWindow = null
+  })
+  childWindow.on('closed', function () {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
