@@ -48,7 +48,7 @@ app.on('ready', function(e) {
 app.on('will-finish-launching', function(){
   console.log(10+90);
 });
-
+console.log(app.getPath('desktop'));
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
