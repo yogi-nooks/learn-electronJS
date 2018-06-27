@@ -27,9 +27,20 @@ let mainWindow
 app.on('ready', function(e) {
   // Create the browser window.
   
-  mainWindow = new BrowserWindow({width: 1400, height: 600, backgroundColor : '#f00f00', frame: true, minWidth: 500, minHeight: 500});
+  let winState = windowStateKeeper({
+    defaultWidth : 1200,
+    defaultHight : 500
+  });
+
+  mainWindow = new BrowserWindow({width: 600, height: 400, x: winState.x, y: winState.y, backgroundColor : '#f00f00', frame: true, minWidth: 200, minHeight: 100});
   // childWindow = new BrowserWindow({width: 600, height: 400, backgroundColor : '#ffffff', parent: mainWindow, modal: true, show: false});
   
+  let ses = mainWindow.webContents.session;
+
+  console.log(ses);
+
+
+  winState.manage(mainWindow);
   // and load the index.html of the app.
   mainWindow.loadFile('index.html');
 
