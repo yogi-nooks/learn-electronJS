@@ -1,11 +1,12 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
 
-// require electron reload 
 require('electron-reload')(__dirname);
+// require electron reload 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 var bcrypt = require('bcrypt');
+const windowStateKeeper = require('electron-window-state');
 const saltRounds = 10;
 const myPlaintextPassword = 's0/\/\P4$$w0rD';
 const someOtherPlaintextPassword = 'not_bacon';
@@ -22,22 +23,28 @@ let mainWindow
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 
-console.log(app.getPath('desktop'));
-console.log(app.getName());
 
 app.on('ready', function(e) {
   // Create the browser window.
   
-  mainWindow = new BrowserWindow({width: 1400, height: 600, backgroundColor : '#ffff00'});
-  childWindow = new BrowserWindow({width: 400, height: 400, backgroundColor : '#ffffff', parent: mainWindow});
+  mainWindow = new BrowserWindow({width: 1400, height: 600, backgroundColor : '#f00f00', frame: true, minWidth: 500, minHeight: 500});
+  // childWindow = new BrowserWindow({width: 600, height: 400, backgroundColor : '#ffffff', parent: mainWindow, modal: true, show: false});
   
   // and load the index.html of the app.
   mainWindow.loadFile('index.html');
-  childWindow.loadURL('https://electronjs.org/docs/all');
+
+  mainWindow.on('focus',function(){
+    console.log('on focus');
+  })
+  // childWindow.loadURL('https://electronjs.org/docs/all');
   
   // mainWindow.once('ready-to-show', function(){
   //   mainWindow.show();
   // })
+
+  // childWindow.once('ready-to-show',function(){
+  //   childWindow.show();
+  // });
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
@@ -49,12 +56,12 @@ app.on('ready', function(e) {
     // when you should delete the corresponding element.
     mainWindow = null
   })
-  childWindow.on('closed', function () {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
-    mainWindow = null
-  })
+  // childWindow.on('closed', function () {
+  //   // Dereference the window object, usually you would store windows
+  //   // in an array if your app supports multi windows, this is the time
+  //   // when you should delete the corresponding element.
+  //   mainWindow = null
+  // })
 })
 
 //Before quit 
